@@ -8,7 +8,7 @@ interface Props {
 
 const SideBarElement: React.FC<Props> = ({id, title}) => {
   return (
-    <NavLink className={'custom-link'} to={'/quotes/'+ id}>
+    <NavLink className={'custom-link'} to={'/quotes/' + id}>
       {title}
     </NavLink>
 
