@@ -63,17 +63,16 @@ const Quotes = () => {
     <>
       <div className={'d-flex justify-content-between '}>
         <aside className="d-flex flex-column">
-          <NavLink className={'custom-link'} to={'/'}>All
+          <NavLink className={'custom-link fs-3'} to={'/'}>All
           </NavLink>
           {data.map((item) => (<SideBarElement key={item.id} id={item.id} title={item.title}/>))}
         </aside>
-        {loading ? <div className={''}><Spinner/></div> :
+        {loading && (<div className={''}><Spinner/></div>)}
           <div className={'d-flex flex-column gap-3'}>
-            {quotes.map((item) => (
+            {quotes.length > 0 ? quotes.map((item) => (
               <QuotesItem key={item.id} id={item.id} author={item.author} quote={item.quote} category={item.category}
-                          onClick={() => deleteQuote(item.id)}/>))}
+                          onClick={() => deleteQuote(item.id)}/>)) : <h1 className={'text-danger me-5'}>List empty</h1>}
           </div>
-        }
       </div>
     </>
   );
